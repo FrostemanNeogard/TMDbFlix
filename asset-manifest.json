@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/compileit-test-case/static/js/main.8e8f7a2c.js",
+    "index.html": "/compileit-test-case/index.html",
+    "main.8e8f7a2c.js.map": "/compileit-test-case/static/js/main.8e8f7a2c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8e8f7a2c.js"
+  ]
+}
