@@ -1,0 +1,106 @@
+.main-content
+  width: $main-content-width
+  background: $main-background
+  display: flex
+  flex-direction: column
+  gap: 50px 0
+  padding: 2rem
+  padding-bottom: 1rem
+  footer
+    text-align: center
+    margin-top: auto
+    color: $main-font-color-darkened
+  nav
+    border: 1px solid lightgray
+    background: white
+    width: fit-content
+    height: fit-content
+    font-size: 1rem
+    padding: 8px 15px
+    border-radius: 99999px
+    display: flex
+    align-items: center
+    gap: 0 10px
+    svg
+      font-size: inherit
+      color: black
+      user-select: none
+      width: 10%
+      background: none
+    input
+      font-size: inherit
+      color: $secondary-font-color
+      border: none
+      background: none
+      height: 100%
+      flex-grow: 1
+      &:focus
+        outline: none
+  .movies-section
+    display: flex
+    flex-direction: column
+    gap: inherit
+    .wide .movie-list
+      .movie
+        flex-grow: 1
+        min-width: 0
+        height: auto
+        aspect-ratio: 16/9
+    .tall .movie-list
+      .movie
+        width: 10rem
+        height: 20rem
+        div
+          transition: 0.1s all ease-in
+          border-radius: inherit
+          height: 100%
+          display: flex
+          flex-direction: column
+          justify-content: center
+          background: none
+          color: rgba(0, 0, 0, 0)
+          text-align: center
+          &:hover
+            color: $main-font-color
+            background: rgba(0, 0, 0, 0.8)
+            outline: 1px solid white
+    div
+      h1
+        margin: 0
+        margin-bottom: 20px
+        font-size: 1.5rem
+      .movie-list
+        flex-direction: row
+        display: flex
+        gap: 0 1rem
+        width: 100%
+        .movie
+          position: relative
+          display: flex
+          flex-direction: column
+          border-radius: 5px
+          img
+            border-radius: inherit
+            height: 100%
+            width: auto
+          div
+            position: absolute
+            bottom: 0
+            height: fit-content
+            width: 100%
+            background-color: rgba(0, 0, 0, 0.7)
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%)
+            padding: 1rem
+            padding-bottom: 0.5rem
+            border-radius: inherit
+            border-top-right-radius: 0
+            border-top-left-radius: 0
+            p.movie-title
+              font-size: 1rem
+              font-weight: 700
+            p.release-year
+              font-size: 0.85rem
+              font-weight: 400
+            *
+              margin: 0
+              background: none
