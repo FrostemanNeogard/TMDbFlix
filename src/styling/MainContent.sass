@@ -10,7 +10,7 @@
     text-align: center
     margin-top: auto
     color: $main-font-color-darkened
-  nav
+  nav.search-bar
     border: 1px solid lightgray
     background: white
     width: fit-content
@@ -36,6 +36,26 @@
       flex-grow: 1
       &:focus
         outline: none
+  nav.genre-filter
+    display: flex
+    flex-direction: row
+    align-items: center
+    overflow-x: scroll
+    padding: 1rem 0
+    gap: 0 1rem
+    margin: 1rem 0
+    button
+      font-weight: 600
+      transition: all 100ms ease-out
+      border: 2px solid $main-font-color
+      background-color: none
+      color: $main-font-color
+      border-radius: 9999px
+      padding: 10px 40px
+      &:hover
+        cursor: pointer
+        background-color: $main-font-color
+        color: $secondary-background
   .movies-section
     display: flex
     flex-direction: column
@@ -43,10 +63,13 @@
     .wide .movie-list
       flex-wrap: nowrap
       .movie
+        transition: all 100ms ease-out
         flex-grow: 1
         min-width: 0
         height: auto
         aspect-ratio: 1.77/1
+        &:hover
+          outline: 2px solid white
     .tall .movie-list
       gap: 1rem
       .movie
