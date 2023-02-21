@@ -1,13 +1,37 @@
-export default function MainContent() {
+import { useEffect, useState } from 'react'
+import GetAPIRequestURL from '../utils/GetAPIRequestURL'
+import GetPosterImage from '../utils/GetPosterImage'
+import GetBackdropImage from '../utils/GetBackdropImage'
+
+function MainContent() {
   
+	let [popularMovies, setPopularMovies] = useState({})
+	let [nowPlaying, setNowPlaying] = useState({})
+	let [topRated, setTopRated] = useState({})
+
+	useEffect(() => {
+		FetchMovieList('movie/popular', setPopularMovies)
+		FetchMovieList('movie/now_playing', setNowPlaying)
+		FetchMovieList('movie/top_rated', setTopRated)
+  }, [])
+
+	const FetchMovieList = (request, setter) => {
+		let requestURL = GetAPIRequestURL(request)
+		fetch(requestURL)
+		.then(res => res.json())
+		.then(data => setter(data))
+	}
+
 	const MovieArticle = (props) => {
-		const { movieTitle, releaseYear, thumbnailSrc } = props
+		const movieData = props.movie ? props.movie : {}
+		const { original_title, release_date } = movieData
+		const posterSrc = GetPosterImage(movieData.poster_path, props.tall)
 		return (
 			<article className="movie">
-				<img src={thumbnailSrc} alt={movieTitle} />
+				<img src={posterSrc} alt={original_title} />
 				<div>
-					<p className="movie-title">{movieTitle}</p>
-					<p className="release-year">{releaseYear}</p>
+					<p className="movie-title">{original_title}</p>
+					<p className="release-year">{release_date}</p>
 				</div>
 			</article>
 		)
@@ -23,23 +47,43 @@ export default function MainContent() {
 			<div className="movies-section">
 
 				<div className="wide">
-					<h1>Trending</h1>
+					<h1>Popular</h1>
 					<section className="movie-list">
-						<MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/>
-						<MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/>
-						{/* <MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/> */}
-						{/* <MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/>
-						<MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/>
-						<MovieArticle movieTitle="Thor: Love and Thunder" releaseYear="2022" thumbnailSrc="https://sportshub.cbsistatic.com/i/2022/05/24/c9523ec9-5681-4e23-999e-0f40b5e12820/thor-love-and-thunder-poster.jpg"/> */}
+						<MovieArticle tall={false} movie={popularMovies.results ? popularMovies.results[0] : {}}/>
+						<MovieArticle tall={false} movie={popularMovies.results ? popularMovies.results[1] : {}}/>
+						<MovieArticle tall={false} movie={popularMovies.results ? popularMovies.results[2] : {}}/>
 					</section>
 				</div>
 
 				<div className="tall">
 					<h1>Now Playing</h1>
 					<section className="movie-list">
-						<MovieArticle movieTitle="Minions" releaseYear="2023" thumbnailSrc="https://m.media-amazon.com/images/I/71Wk9hLzj7L._AC_UF894,1000_QL80_.jpg"/>
-						<MovieArticle movieTitle="Minions" releaseYear="2023" thumbnailSrc="https://m.media-amazon.com/images/I/71Wk9hLzj7L._AC_UF894,1000_QL80_.jpg"/>
-						<MovieArticle movieTitle="Minions" releaseYear="2023" thumbnailSrc="https://m.media-amazon.com/images/I/71Wk9hLzj7L._AC_UF894,1000_QL80_.jpg"/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[0] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[1] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[2] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[3] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[4] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[5] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[6] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[7] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[8] : {}}/>
+						<MovieArticle tall={true} movie={nowPlaying.results ? nowPlaying.results[9] : {}}/>
+					</section>
+				</div>
+
+				<div className="tall">
+					<h1>Top Rated</h1>
+					<section className="movie-list">
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[0] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[1] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[2] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[3] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[4] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[5] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[6] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[7] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[8] : {}}/>
+						<MovieArticle tall={true} movie={topRated.results ? topRated.results[9] : {}}/>
 					</section>
 				</div>
 
@@ -51,3 +95,5 @@ export default function MainContent() {
 		</div>
 	)
 }
+
+export default MainContent
