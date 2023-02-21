@@ -12,8 +12,8 @@ function MainContent() {
 			</nav>
 
 			<Routes>
-				<Route path="/" element={<HomePage />}/>
-				<Route path="/discover" element={<Discover />}/>
+				<Route path="/compileit-test-case/" element={<HomePage />}/>
+				<Route path="/compileit-test-case/discover" element={<Discover />}/>
 			</Routes>
 
 			<footer>
