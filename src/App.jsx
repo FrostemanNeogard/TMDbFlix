@@ -1,6 +1,6 @@
 import MainContent from './components/MainContent';
 import MainNavigation from './components/MainNavigation';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import './main.sass'
 
 function App() {
@@ -8,12 +8,12 @@ function App() {
   const currentPage = window.location.pathname
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <MainNavigation activeButton={currentPage}/>
         <MainContent />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
