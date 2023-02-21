@@ -41,15 +41,17 @@
     flex-direction: column
     gap: inherit
     .wide .movie-list
+      flex-wrap: nowrap
       .movie
         flex-grow: 1
         min-width: 0
         height: auto
-        aspect-ratio: 16/9
+        aspect-ratio: 1.77/1
     .tall .movie-list
+      gap: 1rem
       .movie
         width: 10rem
-        height: 20rem
+        aspect-ratio: 2/3
         div
           transition: 0.1s all ease-in
           border-radius: inherit
@@ -71,6 +73,7 @@
         font-size: 1.5rem
       .movie-list
         flex-direction: row
+        flex-wrap: wrap
         display: flex
         gap: 0 1rem
         width: 100%
@@ -79,6 +82,8 @@
           display: flex
           flex-direction: column
           border-radius: 5px
+          &:hover
+            cursor: pointer
           img
             border-radius: inherit
             height: 100%
