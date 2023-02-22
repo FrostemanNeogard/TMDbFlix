@@ -1,0 +1,76 @@
+.movies-section
+  display: flex
+  flex-direction: column
+  gap: inherit
+  .wide .movie-list
+    flex-wrap: nowrap
+    .movie
+      transition: all 100ms ease-out
+      flex-grow: 1
+      min-width: 0
+      height: auto
+      aspect-ratio: 1.77/1
+      &:hover
+        outline: 2px solid white
+  .tall .movie-list
+    gap: 1rem
+    .movie
+      width: 10rem
+      aspect-ratio: 2/3
+      div
+        transition: 0.1s all ease-in
+        border-radius: inherit
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        background: none
+        color: rgba(0, 0, 0, 0)
+        text-align: center
+        &:hover
+          color: $main-font-color
+          background: rgba(0, 0, 0, 0.8)
+          outline: 1px solid white
+  div
+    h1
+      margin: 0
+      margin-bottom: 20px
+      font-size: 1.5rem
+    .movie-list
+      flex-direction: row
+      flex-wrap: wrap
+      display: flex
+      gap: 0 1rem
+      width: 100%
+      .movie
+        position: relative
+        display: flex
+        flex-direction: column
+        border-radius: 5px
+        &:hover
+          cursor: pointer
+        img
+          border-radius: inherit
+          height: 100%
+          width: auto
+        div
+          position: absolute
+          bottom: 0
+          height: fit-content
+          width: 100%
+          background-color: rgba(0, 0, 0, 0.7)
+          background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%)
+          padding: 1rem
+          padding-bottom: 0.5rem
+          border-radius: inherit
+          border-top-right-radius: 0
+          border-top-left-radius: 0
+          p.movie-title
+            font-size: 1rem
+            font-weight: 700
+          p.release-year
+            font-size: 0.85rem
+            font-weight: 400
+          *
+            margin: 0
+            background: none
