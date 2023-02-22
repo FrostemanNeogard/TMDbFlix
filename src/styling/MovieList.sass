@@ -1,6 +1,7 @@
 :root
   --mouse-x: 20deg
   --mouse-y: 10deg
+  --shine-strength: 100%
   
 .movies-section
   display: flex
@@ -16,8 +17,20 @@
       height: auto
       .movie
         aspect-ratio: 1.77/1
+        &::before
+          content: ""
+          background-image: linear-gradient(210deg, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.3) 20%, rgba(0, 0, 0, 0) 25%)
+          background-repeat: no-repeat
+          background-size: 1000%
+          background-position-x: 77%
+          height: 100%
+          width: 100%
+          position: absolute
+          border-radius: inherit
       &:hover
         cursor: pointer
+        .movie::before
+          background-position-x: var(--shine-strength)
         .movie
           z-index: 100
           transform: perspective(100px) rotateX(var(--mouse-x)) rotateY(var(--mouse-y))
