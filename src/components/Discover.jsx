@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import GetAPIRequestURL from '../utils/GetAPIRequestURL'
-import MovieArticles from './MovieArticles'
+import GetAPIRequestURL from '../utils/js/GetAPIRequestURL'
+import MovieList from './MovieList'
 
 function Discover() {
 	let [filteredMovies, setFilteredMovies] = useState({})
@@ -59,7 +59,7 @@ function Discover() {
 					<GenreButtons buttonAmount={10}/>
 				</nav>
 				<section className="movie-list">
-					<MovieArticles tall={true} amount={10} movieArray={filteredMovies.results ? filteredMovies.results : {}}/>
+					<MovieList tall={true} amount={10} movieArray={filteredMovies.results ? filteredMovies.results : {}}/>
 				</section>
 			</div>
 		</div>
