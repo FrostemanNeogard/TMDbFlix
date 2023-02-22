@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import MovieArticles from './MovieArticles'
-import GetAPIRequestURL from "../utils/GetAPIRequestURL"
+import MovieList from './MovieList'
+import GetAPIRequestURL from "../utils/js/GetAPIRequestURL"
 
 function HomePage() {
 	let [popularMovies, setPopularMovies] = useState({})
@@ -26,23 +26,17 @@ function HomePage() {
 
 				<div className="wide">
 					<h1>Popular</h1>
-					<section className="movie-list">
-						<MovieArticles tall={false} amount={3} movieArray={popularMovies.results ? popularMovies.results : {}}/>
-					</section>
+					<MovieList tall={false} amount={3} movieArray={popularMovies.results ? popularMovies.results : {}}/>
 				</div>
 
 				<div className="tall">
 					<h1>Now Playing</h1>
-					<section className="movie-list">
-						<MovieArticles tall={true} amount={15} movieArray={nowPlaying.results ? nowPlaying.results : {}}/>
-					</section>
+					<MovieList tall={true} amount={15} movieArray={nowPlaying.results ? nowPlaying.results : {}}/>
 				</div>
 
 				<div className="tall">
 					<h1>Top Rated</h1>
-					<section className="movie-list">
-						<MovieArticles tall={true} amount={14} movieArray={topRated.results ? topRated.results : {}}/>
-					</section>
+					<MovieList tall={true} amount={14} movieArray={topRated.results ? topRated.results : {}}/>
 				</div>
 
 			</div>
