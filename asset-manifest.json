@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/compileit-test-case/static/css/main.d3269a9e.css",
-    "main.js": "/compileit-test-case/static/js/main.b342c539.js",
+    "main.css": "/compileit-test-case/static/css/main.3f5e707b.css",
+    "main.js": "/compileit-test-case/static/js/main.c7b019a2.js",
     "index.html": "/compileit-test-case/index.html",
-    "main.d3269a9e.css.map": "/compileit-test-case/static/css/main.d3269a9e.css.map",
-    "main.b342c539.js.map": "/compileit-test-case/static/js/main.b342c539.js.map"
+    "main.3f5e707b.css.map": "/compileit-test-case/static/css/main.3f5e707b.css.map",
+    "main.c7b019a2.js.map": "/compileit-test-case/static/js/main.c7b019a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3269a9e.css",
-    "static/js/main.b342c539.js"
+    "static/css/main.3f5e707b.css",
+    "static/js/main.c7b019a2.js"
   ]
 }
