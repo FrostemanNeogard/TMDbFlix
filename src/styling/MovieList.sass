@@ -1,3 +1,7 @@
+:root
+  --mouse-x: 20deg
+  --mouse-y: 10deg
+  
 .movies-section
   display: flex
   flex-direction: column
@@ -5,13 +9,22 @@
   .wide .movie-list
     flex-wrap: nowrap
     .movie
-      transition: all 100ms ease-out
+      transition: filter 300ms ease-in-out
+    .movie-bounding-box
       flex-grow: 1
       min-width: 0
       height: auto
-      aspect-ratio: 1.77/1
+      .movie
+        aspect-ratio: 1.77/1
       &:hover
-        outline: 2px solid white
+        cursor: pointer
+        .movie
+          z-index: 100
+          transform: perspective(100px) rotateX(var(--mouse-x)) rotateY(var(--mouse-y))
+          outline: 2px solid white
+    &:has(.movie-bounding-box:hover)
+      .movie-bounding-box:not(:hover) .movie
+        filter: brightness(50%)
   .tall .movie-list
     gap: 1rem
     .movie
