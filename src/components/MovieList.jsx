@@ -8,7 +8,7 @@ function MovieList(props) {
 	useEffect(() => {
 		const handleOnMouseMove = e => {
 			let { currentTarget: target } = e;
-			let constraint = window.innerWidth / 8;
+			let constraint = window.innerWidth / 4;
 			let box = target.getBoundingClientRect();
 			let calcX = -(e.clientY - box.y - (box.height / 2)) / constraint;
 			let calcY = (e.clientX - box.x - (box.width / 2)) / constraint;
