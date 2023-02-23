@@ -1,6 +1,6 @@
 import MainContent from './components/MainContent';
 import MainNavigation from './components/MainNavigation';
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import './main.sass'
 
 function App() {
