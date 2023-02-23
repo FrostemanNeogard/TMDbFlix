@@ -33,8 +33,8 @@ function MovieList(props) {
 		const posterSrc = GetPosterImage(movieData.poster_path, props.tall)
 
 		returnHTML.push(
-			<Link key={i} to={`/movie?id=${currentMovie?.id}`} state={{movie: currentMovie}}>
-				<article className="movie-bounding-box">
+			<article className="movie-bounding-box">
+					<Link key={i} to={`/movie?id=${currentMovie?.id}`} state={{movie: currentMovie}}>
 						<div className="movie">
 							<img src={posterSrc} alt={original_title} />
 							<div>
@@ -42,8 +42,8 @@ function MovieList(props) {
 								<p className="release-year">{releaseYear}</p>
 							</div>
 						</div>
+					</Link>
 				</article>
-			</Link>
 		)
 	}
 	return (
