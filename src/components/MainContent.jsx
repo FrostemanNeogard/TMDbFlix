@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './HomePage'
 import Discover from './Discover'
+import MoviePage from './MoviePage'
 
 function MainContent() {
 	return (
@@ -14,6 +15,7 @@ function MainContent() {
 			<Routes>
 				<Route path="/" element={<HomePage />}/>
 				<Route path="/discover" element={<Discover />}/>
+				<Route path="/movie" element={<MoviePage />}/>
 			</Routes>
 
 			<footer>
