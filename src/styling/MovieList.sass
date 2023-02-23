@@ -10,7 +10,7 @@
   .wide .movie-list
     flex-wrap: nowrap
     .movie
-      transition: filter 300ms ease-out
+      transition: all 300ms ease-out
     .movie-bounding-box
       flex-grow: 1
       min-width: 0
@@ -35,7 +35,7 @@
         .movie
           z-index: 100
           transform: perspective(100px) rotateX(var(--mouse-x)) rotateY(var(--mouse-y))
-          outline: 2px solid white
+          outline: 1px solid white
           filter: brightness(100%) drop-shadow(0 1rem 1rem black)
     &:has(.movie-bounding-box:hover)
       .movie-bounding-box:not(:hover) .movie
