@@ -1,4 +1,3 @@
-const API_KEY = process.env.REACT_APP_API_KEY
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1920_and_h427_multi_faces/'
 
 export default function GetBackdropImage(poster_path) {
