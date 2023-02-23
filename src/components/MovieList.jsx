@@ -1,6 +1,7 @@
 import GetPosterImage from "../utils/js/GetPosterImage"
 import $ from 'jquery'
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function MovieList(props) {
 
@@ -32,15 +33,17 @@ function MovieList(props) {
 		const posterSrc = GetPosterImage(movieData.poster_path, props.tall)
 
 		returnHTML.push(
-			<article key={i} className="movie-bounding-box">
-				<div className="movie">
-					<img src={posterSrc} alt={original_title} />
-					<div>
-						<p className="movie-title">{original_title}</p>
-						<p className="release-year">{releaseYear}</p>
-					</div>
-				</div>
-			</article>
+			<Link key={i} to={`/movie?id=${currentMovie?.id}`} state={{movie: currentMovie}}>
+				<article className="movie-bounding-box">
+						<div className="movie">
+							<img src={posterSrc} alt={original_title} />
+							<div>
+								<p className="movie-title">{original_title}</p>
+								<p className="release-year">{releaseYear}</p>
+							</div>
+						</div>
+				</article>
+			</Link>
 		)
 	}
 	return (
