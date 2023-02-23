@@ -6,7 +6,8 @@ export default function MainNavigation(props) {
   let [activeButton, setActiveButton] = useState(props.activeButton)
   
   useEffect(() => {
-    setActiveButton(props.activeButton)
+    if (!activeButton) setActiveButton(window.location.pathname)
+    else setActiveButton(props.activeButton)
   }, [props.activeButton])
 
   return (
