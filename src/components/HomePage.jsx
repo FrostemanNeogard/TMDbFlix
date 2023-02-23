@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import MovieList from './MovieList'
 import GetAPIRequestURL from "../utils/js/GetAPIRequestURL"
+import FetchMovieList from '../utils/js/FetchMovieList'
 
 function HomePage() {
 	let [popularMovies, setPopularMovies] = useState({})
@@ -12,13 +13,6 @@ function HomePage() {
 		FetchMovieList('movie/now_playing', setNowPlaying)
 		FetchMovieList('movie/top_rated', setTopRated)
   }, [])
-
-	const FetchMovieList = (request, setter) => {
-		let requestURL = GetAPIRequestURL(request)
-		fetch(requestURL)
-		.then(res => res.json())
-		.then(data => setter(data))
-	}
   
 	return (
 		<>
