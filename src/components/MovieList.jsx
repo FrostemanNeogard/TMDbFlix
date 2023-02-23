@@ -28,7 +28,7 @@ function MovieList(props) {
 		const currentMovie = props.movieArray[i]
 		const movieData = currentMovie ? currentMovie : {}
 		const { original_title, release_date } = movieData
-		const releaseYear = release_date.substring(0, 4)
+		const releaseYear = release_date?.substring(0, 4)
 		const posterSrc = GetPosterImage(movieData.poster_path, props.tall)
 
 		returnHTML.push(
