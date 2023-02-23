@@ -1,0 +1,24 @@
+.main-navigation
+  nav
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100%
+    gap: 1rem
+    button
+      transition: 100ms all ease-out
+      cursor: pointer
+      display: inline-flex
+      border: none
+      background: none
+      &.active
+        color: $main-font-color
+      &.inactive
+        color: $main-font-color-darkened
+      &:hover
+        color: $main-font-color-highlighted
+      span
+        scale: 1.5
+        margin: 0 15px
+        display: flex
+        align-items: center
