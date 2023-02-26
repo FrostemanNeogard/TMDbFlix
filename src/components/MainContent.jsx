@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 function MainContent() {
 
-	let [searchQuery, setSearchQuery] = useState('')
+	let searchQuery = ''
 
 	return (
 		<div className="main-content">
@@ -21,7 +21,7 @@ function MainContent() {
 						window.location.reload()
 					}}
 				>
-					<input type="text" placeholder="Search movie titles" onChange={(e) => setSearchQuery(e.target.value)}/>
+					<input type="text" placeholder="Search movie titles" onChange={(e) => searchQuery = (e.target.value)}/>
 				</form>
 			</nav>
 
