@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import MovieList from './MovieList'
-import GetAPIRequestURL from "../utils/js/GetAPIRequestURL"
 import FetchMovieList from '../utils/js/FetchMovieList'
 
 function HomePage() {
@@ -20,7 +19,7 @@ function HomePage() {
 
 				<div className="wide">
 					<h1>Popular</h1>
-					<MovieList tall={false} amount={3} movieArray={popularMovies.results ? popularMovies.results : {}}/>
+					<MovieList tall={false} amount={2} movieArray={popularMovies.results ? popularMovies.results : {}}/>
 				</div>
 
 				<div className="tall">
