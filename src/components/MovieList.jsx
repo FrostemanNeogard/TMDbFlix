@@ -8,11 +8,11 @@ function MovieList(props) {
 	useEffect(() => {
 		const handleOnMouseMove = e => {
 			let { currentTarget: target } = e;
-			let constraint = window.innerWidth / 4;
+			let constraint = window.innerWidth / 2;
 			let box = target.getBoundingClientRect();
 			let calcX = -(e.clientY - box.y - (box.height / 2)) / constraint;
 			let calcY = (e.clientX - box.x - (box.width / 2)) / constraint;
-			let calcShine = 77 + ((calcY) + (calcX)) * 2;
+			let calcShine = 77 + ((calcY) + (calcX)) * 4;
 			$(':root').css('--mouse-x', `${calcX}deg`);
 			$(':root').css('--mouse-y', `${calcY}deg`);
 			$(':root').css('--shine-strength', `${calcShine}%`);
