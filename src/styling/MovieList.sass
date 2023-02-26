@@ -42,8 +42,13 @@
         filter: brightness(50%) drop-shadow(0 0.5rem 0.5rem black)
   .tall .movie-list
     gap: 1rem
+    justify-content: space-evenly
+    .movie-bounding-box
+      width: 10%
+      flex-grow: 1
+      max-width: 15%
     .movie
-      width: 10rem
+      width: 100%
       aspect-ratio: 2/3
       div
         transition: 0.1s all ease-in
@@ -83,6 +88,15 @@
           border-radius: inherit
           height: 100%
           width: auto
+          &.missing-image
+            background: linear-gradient(to bottom right, #f7f7f7, #797979)
+            color: $secondary-font-color
+            padidng: 10px
+            text-align: center
+            display: flex
+            align-items: center
+            justify-content: center
+            
         div
           position: absolute
           bottom: 0

@@ -24,7 +24,7 @@ function MovieList(props) {
 	})
 
 	let returnHTML = []
-	for (let i = 0; i < props.amount; i++) {
+	for (let i = 0; i < (props.amount > props.movieArray.length ? props.movieArray.length : props.amount); i++) {
 
 		const currentMovie = props.movieArray[i]
 		const movieData = currentMovie ? currentMovie : {}
@@ -33,10 +33,10 @@ function MovieList(props) {
 		const posterSrc = GetPosterImage(movieData.poster_path, props.tall)
 
 		returnHTML.push(
-			<article className="movie-bounding-box">
-					<Link key={i} to={`/movie?id=${currentMovie?.id}`} state={{movie: currentMovie}}>
+			<article key={i}  className="movie-bounding-box">
+					<Link to={`/movie?id=${currentMovie?.id}`} state={{movie: currentMovie}}>
 						<div className="movie">
-							<img src={posterSrc} alt={original_title} />
+							<img className={!movieData.poster_path ? 'missing-image' : ''} src={posterSrc} alt={original_title} />
 							<div>
 								<p className="movie-title">{original_title}</p>
 								<p className="release-year">{releaseYear}</p>
