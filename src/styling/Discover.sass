@@ -1,24 +1,26 @@
-.main-navigation
-  nav
+.main-content
+  nav.genre-filter
     display: flex
-    flex-direction: column
-    justify-content: center
-    height: 100%
-    gap: 1rem
+    flex-wrap: wrap
+    flex-direction: row
+    align-items: center
+    padding: 1rem 0
+    gap: 0.5rem 1rem
+    margin: 1rem 0
+    justify-content: space-between
     button
-      transition: 100ms all ease-out
-      cursor: pointer
-      display: inline-flex
-      border: none
-      background: none
-      &.active
-        color: $main-font-color
-      &.inactive
-        color: $main-font-color-darkened
+      font-weight: 600
+      transition: all 100ms ease-out
+      border: 2px solid $main-font-color
+      background-color: none
+      color: $main-font-color
+      border-radius: 9999px
+      padding: 10px 40px
+      flex-grow: 1
       &:hover
-        color: $main-font-color-highlighted
-      span
-        scale: 1.5
-        margin: 0 15px
-        display: flex
-        align-items: center
+        cursor: pointer
+        background-color: $main-font-color
+        color: $secondary-background
+      &.active
+        background-color: $main-font-color
+        color: $secondary-background
