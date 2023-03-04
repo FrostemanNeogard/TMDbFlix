@@ -15,7 +15,6 @@
       background-color: none
       color: $main-font-color
       border-radius: 9999px
-      padding: 10px 40px
       flex-grow: 1
       &:hover
         cursor: pointer
@@ -24,3 +23,17 @@
       &.active
         background-color: $main-font-color
         color: $secondary-background
+
+@media screen and (orientation: landscape)
+  .main-content
+    nav.genre-filter
+      button
+        padding: 10px 40px
+  
+
+@media screen and (orientation: portrait)
+  .main-content
+    nav.genre-filter
+      button
+        padding: 10px 20px
+  
