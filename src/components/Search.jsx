@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import GetAPIRequestURL from "../utils/js/GetAPIRequestURL"
+import FetchData from '../utils/js/FetchData'
 import MovieList from './MovieList'
 
 export default function Search() {
@@ -9,7 +10,6 @@ export default function Search() {
 
   useEffect(() => {
     const URL = window.location.href
-    console.log(URL)
     const urlParams = URL.substring(URL.indexOf('?'), URL.length)
     const params = new URLSearchParams(urlParams)
     const queryParam = params.get('query')
@@ -17,12 +17,7 @@ export default function Search() {
     else return
 
     const requestUrl = GetAPIRequestURL('search/movie', { query: searchQuery })
-    fetch(requestUrl)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setMovieArray(data)
-      })
+    FetchData(requestUrl, (data) => setMovieArray(data))
   }, [searchQuery])
 
 
