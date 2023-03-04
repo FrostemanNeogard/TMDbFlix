@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/compileit-test-case/static/css/main.c8d88255.css",
+    "main.css": "/compileit-test-case/static/css/main.a314504c.css",
     "main.js": "/compileit-test-case/static/js/main.22601217.js",
     "index.html": "/compileit-test-case/index.html",
-    "main.c8d88255.css.map": "/compileit-test-case/static/css/main.c8d88255.css.map",
+    "main.a314504c.css.map": "/compileit-test-case/static/css/main.a314504c.css.map",
     "main.22601217.js.map": "/compileit-test-case/static/js/main.22601217.js.map"
   },
   "entrypoints": [
-    "static/css/main.c8d88255.css",
+    "static/css/main.a314504c.css",
     "static/js/main.22601217.js"
   ]
 }
