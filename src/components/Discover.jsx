@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import GetAPIRequestURL from '../utils/js/GetAPIRequestURL'
+import GetURLParameters from '../utils/js/GetURLParameters'
+import FetchData from '../utils/js/FetchData'
 import MovieList from './MovieList'
 
 function Discover() {
@@ -20,9 +23,7 @@ function Discover() {
 			with_watch_monetization_types: 'flatrate',
 			with_genres: searchParam
 		})
-		fetch(requestURL)
-		.then(res => res.json())
-		.then(data => setter(data))
+		FetchData(requestURL, (data) => setter(data))
 	}
 
 	const GenreButtons = (props) => {
@@ -30,19 +31,28 @@ function Discover() {
 		let generatedButtonArry = []
 
 		let requestURL = GetAPIRequestURL('genre/movie/list')
-		fetch(requestURL)
-		.then(res => res.json())
-		.then(data => {
-			for (let i = 0; i < props.buttonAmount; i++) {
-				generatedButtonArry.push(
-					<button
-						key={i}
-						onClick={() => {setSearchParam(data.genres[i].id)}}>{data.genres[i].name}
-					</button>
-				)
-			}
-			setButtonArray(generatedButtonArry)
-		})
+		const params = GetURLParameters()
+		const activeId = params.get('genre')
+
+		useEffect(() => {
+			FetchData(requestURL, (data) => {
+				for (let i = 0; i < data.genres.length; i++) {
+					const currentGenre = data.genres[i]
+					generatedButtonArry.push(
+						<Link to={`/discover?genre=${currentGenre.id}`}>
+							<button
+								key={i + 'a'}
+								className={activeId == currentGenre.id ? 'active' : ''}
+								onClick={() => {
+									setSearchParam(currentGenre.id)
+								}}>{currentGenre.name}
+							</button>
+						</Link>
+					)
+				}
+				setButtonArray(generatedButtonArry)
+			})
+		}, [])
 
 		return (
 			<>
@@ -50,17 +60,15 @@ function Discover() {
 			</>
 		)
 	}
-
+	
 	return (
 		<div className="movies-section">
 			<div className="tall">
 				<h1>Discover</h1>
 				<nav className='genre-filter'>
-					<GenreButtons buttonAmount={10}/>
+					<GenreButtons />
 				</nav>
-				<section className="movie-list">
-					<MovieList tall={true} amount={10} movieArray={filteredMovies.results ? filteredMovies.results : {}}/>
-				</section>
+				<MovieList tall={true} amount={18} movieArray={filteredMovies.results ? filteredMovies.results : {}}/>
 			</div>
 		</div>
 	)
