@@ -6,35 +6,70 @@
   gap: 50px 0
   padding: 2rem
   padding-bottom: 1rem
+  .top-navigation
+    height: 2.5rem
+    nav.search-bar
+      border: 1px solid lightgray
+      background: white
+      width: fit-content
+      height: 100%
+      font-size: 1rem
+      padding: 8px 15px
+      border-radius: 99999px
+      display: flex
+      align-items: center
+      gap: 0 10px
+      form
+        all: unset
+      svg
+        font-size: inherit
+        color: black
+        user-select: none
+        width: 10%
+        background: none
+      input
+        font-size: inherit
+        color: $secondary-font-color
+        border: none
+        background: none
+        height: 100%
+        flex-grow: 1
+        &:focus
+          outline: none
   footer
     text-align: center
     margin-top: auto
     color: $main-font-color-darkened
-  nav.search-bar
-    border: 1px solid lightgray
-    background: white
-    width: fit-content
-    height: fit-content
-    font-size: 1rem
-    padding: 8px 15px
-    border-radius: 99999px
-    display: flex
-    align-items: center
-    gap: 0 10px
-    form
-      all: unset
-    svg
-      font-size: inherit
-      color: black
-      user-select: none
-      width: 10%
-      background: none
-    input
-      font-size: inherit
-      color: $secondary-font-color
-      border: none
-      background: none
-      height: 100%
-      flex-grow: 1
-      &:focus
-        outline: none
+  
+// "Desktop" settings
+@media screen and (orientation: landscape)
+  .main-content
+    .sandwich-menu-button
+      display: none
+
+// "Mobile" settings
+@media screen and (orientation: portrait)
+  .main-content
+    width: 100%
+    .top-navigation
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      .sandwich-menu-button
+        position: absolute
+        all: unset
+        background: none
+        color: $main-font-color
+        display: flex
+        flex-direction: column
+        align-self: center
+        gap: 5px
+        height: fit-content
+        width: 2rem
+        &:hover
+          cursor: pointer
+        div
+          width: 100%
+          height: 3px
+          background-color: $main-font-color
+          transition: all 100ms ease
