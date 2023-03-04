@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import MovieList from './MovieList'
-import FetchMovieList from '../utils/js/FetchMovieList'
+import FetchData from '../utils/js/FetchData'
+import GetAPIRequestURL from '../utils/js/GetAPIRequestURL'
 
 function HomePage() {
 	let [popularMovies, setPopularMovies] = useState({})
@@ -8,26 +9,26 @@ function HomePage() {
 	let [topRated, setTopRated] = useState({})
 
 	useEffect(() => {
-		FetchMovieList('movie/popular', setPopularMovies)
-		FetchMovieList('movie/now_playing', setNowPlaying)
-		FetchMovieList('movie/top_rated', setTopRated)
+		FetchData(GetAPIRequestURL('movie/popular'), setPopularMovies)
+		FetchData(GetAPIRequestURL('movie/now_playing'), setNowPlaying)
+		FetchData(GetAPIRequestURL('movie/top_rated'), setTopRated)
   }, [])
   
 	return (
 		<>
 			<div className="movies-section">
 
-				<div className="wide">
+				<div>
 					<h1>Popular</h1>
-					<MovieList tall={false} amount={2} movieArray={popularMovies.results ? popularMovies.results : {}}/>
+					<MovieList tall={false} amount={3} movieArray={popularMovies.results ? popularMovies.results : {}}/>
 				</div>
 
-				<div className="tall">
+				<div>
 					<h1>Now Playing</h1>
 					<MovieList tall={true} amount={15} movieArray={nowPlaying.results ? nowPlaying.results : {}}/>
 				</div>
 
-				<div className="tall">
+				<div>
 					<h1>Top Rated</h1>
 					<MovieList tall={true} amount={14} movieArray={topRated.results ? topRated.results : {}}/>
 				</div>
