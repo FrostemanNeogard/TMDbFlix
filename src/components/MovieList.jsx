@@ -47,9 +47,11 @@ function MovieList(props) {
 		)
 	}
 	return (
-		<section className="movie-list">
-			{returnHTML}
-		</section>
+		<div className={props.tall ? 'tall' : 'wide'}>
+			<section className="movie-list">
+				{returnHTML}
+			</section>
+		</div>
 	)
 }
 
