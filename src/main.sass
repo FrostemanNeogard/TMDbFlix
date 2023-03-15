@@ -11,6 +11,8 @@ html, body, *
 	box-sizing: border-box
 
 // Styling
+.mobile-only
+	display: none
 .App
 	width: 100%
 	min-height: 100vh
@@ -25,5 +27,7 @@ html, body, *
 		word-wrap: break-word
 
 @media screen and (orientation: portrait)
+	.mobile-only
+		display: block	
 	.App
 		overflow-x: hidden
