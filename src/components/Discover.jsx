@@ -39,7 +39,7 @@ function Discover() {
 				for (let i = 0; i < data.genres.length; i++) {
 					const currentGenre = data.genres[i]
 					generatedButtonArry.push(
-						<Link to={`/discover?genre=${currentGenre.id}`}>
+						<Link to={`/discover?genre=${currentGenre.id}`} key={i}>
 							<button
 								key={i + 'a'}
 								className={activeId == currentGenre.id ? 'active' : ''}
