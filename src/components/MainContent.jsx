@@ -27,7 +27,7 @@ function MainContent() {
 				</nav>
 
 				<button className='mobile-only sandwich-menu-button' onClick={() => {
-					ToggleSidebar()
+					OpenSidebar()
 				}}>
 					<div />
 					<div />
@@ -50,22 +50,16 @@ function MainContent() {
 	)
 }
 
-let displayingSidebar = false
-
-function ToggleSidebar() {
+function OpenSidebar() {
 	const sidebar = $('.main-navigation').first()
 	if (!sidebar) return
-	$('html').css({ 'overflow-y': `${displayingSidebar ? 'scroll' : 'hidden'}` })
-	displayingSidebar = !displayingSidebar
-	sidebar.toggleClass('active')
+	if (sidebar.hasClass('active')) return
+
+	$('html').css({ 'overflow-y': 'hidden' })
+	sidebar.addClass('active')
 
 	const mainContent = $('.main-content')
-	if (displayingSidebar) {
-		mainContent.css({ 'filter': 'brightness(50%)' })
-	}
-	else {
-		mainContent.css({ 'filter': 'brightness(100%)' })
-	}
+	mainContent.css({ 'filter': 'brightness(50%)', 'pointer-events': 'none' })
 }
 
 export default MainContent
