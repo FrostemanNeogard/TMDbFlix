@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import $ from 'jquery'
 
-export default function MainNavigation(props) {
+function MainNavigation(props) {
 
   let [activeButton, setActiveButton] = useState(props.activeButton)
   
   useEffect(() => {
-    if (!activeButton) setActiveButton(window.location.pathname)
-    else setActiveButton(props.activeButton)
-  }, [props.activeButton])
+    setActiveButton(window.location.pathname)
+  }, [])
 
   return (
     <div className="main-navigation">
-      <h2>Movies</h2>
+      <header>
+        <h2>Movies</h2>
+        <button className='mobile-only' onClick={() => CloseSidebar()}>&#x2715;</button>
+      </header>
       <nav>
         <Link to="/">
           <button id="home-button" className={activeButton === '/' ? 'active' : 'inactive'} onClick={() => setActiveButton('/')}>
@@ -34,3 +37,17 @@ export default function MainNavigation(props) {
     </div>
   )
 }
+
+function CloseSidebar() {
+  const sidebar = $('.main-navigation').first()
+  if (!sidebar) return
+  if (!sidebar.hasClass('active')) return
+  
+  $('html').css({ 'overflow-y': 'scroll' })
+  sidebar.removeClass('active')
+
+  const mainContent = $('.main-content')
+  mainContent.css({ 'filter': 'brightness(100%)', 'pointer-events': 'all' })
+}
+
+export default MainNavigation
