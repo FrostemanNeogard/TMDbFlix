@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/TMDb-application/static/css/main.406de220.css",
-    "main.js": "/TMDb-application/static/js/main.50af2464.js",
-    "index.html": "/TMDb-application/index.html",
-    "main.406de220.css.map": "/TMDb-application/static/css/main.406de220.css.map",
-    "main.50af2464.js.map": "/TMDb-application/static/js/main.50af2464.js.map"
+    "main.css": "/TMDbFlix/static/css/main.406de220.css",
+    "main.js": "/TMDbFlix/static/js/main.50af2464.js",
+    "index.html": "/TMDbFlix/index.html",
+    "main.406de220.css.map": "/TMDbFlix/static/css/main.406de220.css.map",
+    "main.50af2464.js.map": "/TMDbFlix/static/js/main.50af2464.js.map"
   },
   "entrypoints": [
     "static/css/main.406de220.css",
