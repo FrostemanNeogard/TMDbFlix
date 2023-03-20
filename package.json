@@ -1,7 +1,7 @@
 {
   "name": "compileit-test-case",
   "version": "0.1.0",
-  "homepage": "https://FrostemanNeogard.github.io/TMDb-application",
+  "homepage": "https://FrostemanNeogard.github.io/TMDbFlix",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
