@@ -1,4 +1,6 @@
-## Note: There is currently a CORS bug causing movies to not display on the 'Discover' tab when on the production link.
+## This project is live at https://github.com/FrostemanNeogard/TMDbFlix
+
+**Note: There is currently a CORS bug causing movies to not display on the 'Discover' tab when on the production link.**
 
 ## About this project
 
