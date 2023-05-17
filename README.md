@@ -1,4 +1,4 @@
-## This project is live at https://github.com/FrostemanNeogard/TMDbFlix
+## This project is live at https://frostemanneogard.github.io/TMDbFlix/
 
 **Note: There is currently a CORS bug causing movies to not display on the 'Discover' tab when on the production link.**
 
